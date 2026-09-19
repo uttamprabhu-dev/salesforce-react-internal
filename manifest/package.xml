@@ -5,8 +5,17 @@
         <name>AiAuthoringBundle</name>
     </types>
     <types>
+        <members>ContactUsController</members>
+        <members>ContactUsControllerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
         <members>VantageEstates</members>
         <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>CustomLabels</members>
+        <name>CustomLabels</name>
     </types>
     <types>
         <members>VantageEstates_Access</members>

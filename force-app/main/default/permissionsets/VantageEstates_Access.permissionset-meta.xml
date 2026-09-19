@@ -4,6 +4,10 @@
         <application>VantageEstates</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>ContactUsController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <hasActivationRequired>false</hasActivationRequired>
     <label>VantageEstates Access</label>
     <userPermissions>

@@ -13,32 +13,32 @@ import { createDataSDK } from '@salesforce/platform-sdk';
  * query().
  */
 function isMutation(operation: string): boolean {
-  return /^\s*mutation\b/.test(operation.replace(/#[^\n\r]*/g, ''));
+	return /^\s*mutation\b/.test(operation.replace(/#[^\n\r]*/g, ''));
 }
 
 export async function executeGraphQL<TData, TVariables>(
-  operation: string,
-  variables?: TVariables
+	operation: string,
+	variables?: TVariables,
 ): Promise<TData> {
-  const data = await createDataSDK();
-  const result = isMutation(operation)
-    ? await data.graphql!.mutate<TData, TVariables>({
-        mutation: operation,
-        variables: variables,
-      })
-    : await data.graphql!.query<TData, TVariables>({
-        query: operation,
-        variables: variables,
-      });
+	const data = await createDataSDK();
+	const result = isMutation(operation)
+		? await data.graphql!.mutate<TData, TVariables>({
+				mutation: operation,
+				variables: variables,
+			})
+		: await data.graphql!.query<TData, TVariables>({
+				query: operation,
+				variables: variables,
+			});
 
-  if (result.errors?.length) {
-    const msg = result.errors.map(e => e.message).join('; ');
-    throw new Error(`GraphQL Error: ${msg}`);
-  }
+	if (result.errors?.length) {
+		const msg = result.errors.map((e) => e.message).join('; ');
+		throw new Error(`GraphQL Error: ${msg}`);
+	}
 
-  if (result.data == null) {
-    throw new Error('GraphQL response data is null');
-  }
+	if (result.data == null) {
+		throw new Error('GraphQL response data is null');
+	}
 
-  return result.data;
+	return result.data;
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Contact_Us_Recipient_Emails</fullName>
+        <categories>ContactUs</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contact Us notification recipient emails</shortDescription>
+        <value>uttam.prabhu@absyz.com</value>
+    </labels>
+</CustomLabels>

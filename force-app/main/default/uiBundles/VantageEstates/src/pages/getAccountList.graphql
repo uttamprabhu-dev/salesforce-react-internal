@@ -1,0 +1,38 @@
+query GetAccountList($first: Int, $after: String, $where: Account_Filter, $orderBy: Account_OrderBy) {
+  uiapi {
+    query {
+      Account(first: $first, after: $after, where: $where, orderBy: $orderBy) {
+        totalCount
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+          startCursor
+          endCursor
+        }
+        edges {
+          node {
+            Id
+            Name {
+              value
+            }
+            Industry {
+              value
+            }
+            Phone {
+              value
+            }
+            Site {
+              value
+            }
+            Type {
+              value
+            }
+            NumberOfEmployees {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}

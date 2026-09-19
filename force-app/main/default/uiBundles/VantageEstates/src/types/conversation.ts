@@ -1,45 +1,28 @@
+import type { StyleTokens } from "@salesforce/agentforce-conversation-client";
+
 /**
- * Copyright (c) 2026, Salesforce, Inc.
- * All rights reserved.
- * For full license text, see the LICENSE.txt file
+ * Flat prop surface for {@link AgentforceConversationClient}. Mirrors the
+ * fields of `AgentforceClientConfig` (plus embed-time overrides) that this
+ * template exposes; everything is optional so the component can be dropped
+ * in with just an `agentId`.
  */
-
-import type {
-	AgentforceErrorHandler,
-	AgentforceReadyHandler,
-} from "@salesforce/agentforce-conversation-client";
-
-export interface ResolvedEmbedOptions {
-	salesforceOrigin?: string;
-	frontdoorUrl?: string;
-}
-
-export type StyleTokens = Record<string, string>;
-
 export interface AgentforceConversationClientProps {
-	/** Required in practice: id of the agent to load. */
-	agentId: string;
-	/** Display name for the agent shown in the chat header. */
+	/** Agentforce agent id (e.g. "0Xx..."). Required for the embed to do anything useful. */
+	agentId?: string;
+	/** Display label for the agent in the chat header. */
 	agentLabel?: string;
-	/** If true, renders inline. If omitted/false, renders floating. */
+	/** Render inline (caller-provided container) instead of a floating launcher. */
 	inline?: boolean;
-	/** Show/hide chat header. Defaults to true for floating; can only be set for inline mode. */
 	headerEnabled?: boolean;
-	/** Show/hide agent icon in the header. */
 	showHeaderIcon?: boolean;
-	/** Inline width. */
 	width?: string | number;
-	/** Inline height. */
 	height?: string | number;
-	/** Theme overrides for the chat UI. */
 	styleTokens?: StyleTokens;
 	isFileBased?: boolean;
-	/** Optional. If not provided, resolved internally (e.g. from /__lo/frontdoor in dev, window.location.origin in prod). */
+	/** Overrides the resolved Salesforce origin (defaults to `SFDC_ENV`). */
 	salesforceOrigin?: string;
-	/** Optional. If not provided, resolved internally in dev via /__lo/frontdoor. */
+	/** Overrides the resolved frontdoor URL (dev-only; defaults to the `/__lo/frontdoor` fetch). */
 	frontdoorUrl?: string;
-	/** Callback invoked when the Lightning Out application is ready. */
-	onReady?: AgentforceReadyHandler;
-	/** Callback invoked when a Lightning Out error occurs. */
-	onError?: AgentforceErrorHandler;
+	onReady?: (detail: unknown) => void;
+	onError?: (error: unknown) => void;
 }

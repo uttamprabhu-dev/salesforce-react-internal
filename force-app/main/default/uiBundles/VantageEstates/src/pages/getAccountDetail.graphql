@@ -1,0 +1,99 @@
+query GetAccountDetail($id: ID!) {
+  uiapi {
+    query {
+      Account(where: { Id: { eq: $id } }) {
+        edges {
+          node {
+            Id
+            Name {
+              value
+            }
+            Owner {
+              Name {
+                value
+              }
+            }
+            Phone {
+              value
+            }
+            Fax {
+              value
+            }
+            Parent {
+              Name {
+                value
+              }
+            }
+            Website {
+              value
+            }
+            Type {
+              value
+            }
+            NumberOfEmployees {
+              value
+            }
+            Industry {
+              value
+            }
+            AnnualRevenue {
+              value
+              displayValue
+            }
+            Description {
+              value
+            }
+            BillingStreet {
+              value
+            }
+            BillingCity {
+              value
+            }
+            BillingState {
+              value
+            }
+            BillingPostalCode {
+              value
+            }
+            BillingCountry {
+              value
+            }
+            ShippingStreet {
+              value
+            }
+            ShippingCity {
+              value
+            }
+            ShippingState {
+              value
+            }
+            ShippingPostalCode {
+              value
+            }
+            ShippingCountry {
+              value
+            }
+            CreatedBy {
+              Name {
+                value
+              }
+            }
+            CreatedDate {
+              value
+              displayValue
+            }
+            LastModifiedBy {
+              Name {
+                value
+              }
+            }
+            LastModifiedDate {
+              value
+              displayValue
+            }
+          }
+        }
+      }
+    }
+  }
+}
