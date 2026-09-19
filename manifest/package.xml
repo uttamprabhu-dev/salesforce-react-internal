@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>VantageEstates</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>VantageEstates_Access</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>VantageEstates</members>
+        <name>UIBundle</name>
+    </types>
+    <version>67.0</version>
+</Package>

@@ -1,0 +1,9 @@
+{
+  "permsetAssignments": {
+    "assignments": {
+      "VantageEstates_Access": {
+        "assignee": "currentUser"
+      }
+    }
+  }
+}
